@@ -485,7 +485,8 @@ window.WEDDING = {
 
   document.querySelectorAll('.free-gift').forEach((b) => b.addEventListener('click', () => openGift(null)))
   renderGifts($('gift-grid'), preview.length ? preview : sorted.slice(0, 6))
-  renderGifts($('gift-grid-all'), sorted)
+  const mixed = sorted.map((_, i) => sorted[(i * 13 + 5) % sorted.length])
+  renderGifts($('gift-grid-all'), mixed)
 
   // "Página" da lista completa (mesmo arquivo, endereço #/presentes)
   const route = () => {
